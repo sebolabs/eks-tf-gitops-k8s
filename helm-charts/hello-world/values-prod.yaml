@@ -1,0 +1,7 @@
+# This is whether to let ArgoCD deploy the app resources
+enabled: false
+
+environment: prod
+
+service:
+  nodePort: 30083
