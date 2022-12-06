@@ -9,3 +9,20 @@ spec:
     matchLabels:
       app: {{ .Values.environment }}-hello-world-svc
   replicas: {{ .Values.replicas }}
+    template:
+    metadata:
+      labels:
+        app: {{ .Values.environment }}-hello-world
+    spec:
+      containers:
+      - name: {{ .Values.environment }}-hello-world
+        image: hello-world:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: "250m"
+          requests:
+            memory: 128Mi
+            cpu: "80m"
