@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.environment }}-hello-world
+  name: {{ .Values.environment }}-hello-world-svc
 spec:
   selector:
-    app: {{ .Values.environment }}-hello-world
+    app: {{ .Values.environment }}-hello-world-svc
   ports:
     - protocol: TCP
       port: 80

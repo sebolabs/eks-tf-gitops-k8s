@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.environment }}-hello-world-svc-deployment
+  labels:
+    app: {{ .Values.environment }}-hello-world-svc
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.environment }}-hello-world-svc
+  replicas: {{ .Values.replicas }}
