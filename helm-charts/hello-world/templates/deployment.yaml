@@ -9,7 +9,7 @@ spec:
     matchLabels:
       app: {{ .Values.environment }}-hello-world
   replicas: {{ .Values.replicas }}
-    template:
+  template:
     metadata:
       labels:
         app: {{ .Values.environment }}-hello-world
