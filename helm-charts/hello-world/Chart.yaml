@@ -1,6 +1,6 @@
 apiVersion: v2
 name: hello-world
-description: The Hello-World Service helm chart
+description: The Hello-World helm chart
 
 # A chart can be either an 'application' or a 'library' chart.
 #
