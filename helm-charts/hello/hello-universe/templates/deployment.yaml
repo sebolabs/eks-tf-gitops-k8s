@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.environment }}-hello-universe-deployment
+  labels:
+    app: {{ .Values.environment }}-hello-universe
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.environment }}-hello-universe
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.environment }}-hello-universe
+    spec:
+      containers:
+      - name: {{ .Values.environment }}-hello-universe
+        image: registry.k8s.io/e2e-test-images/agnhost:2.39
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: "250m"
+          requests:
+            memory: 128Mi
+            cpu: "80m"
