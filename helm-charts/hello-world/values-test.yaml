@@ -1,5 +1,5 @@
 # This is whether to let ArgoCD deploy the app resources
-enabled: true
+enabled: false
 
 environment: test
 
