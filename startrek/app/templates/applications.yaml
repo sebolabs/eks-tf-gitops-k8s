@@ -20,6 +20,8 @@ spec:
     targetRevision: {{ $val.source.targetRevision }}
     path: {{ $val.source.path }}
     helm:
+      values:
+      - environment: {{ $.Values.environment }}
       valueFiles:
       - values.yaml
       - values-{{ $.Values.environment }}.yaml
