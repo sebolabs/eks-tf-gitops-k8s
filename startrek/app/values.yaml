@@ -1,6 +1,6 @@
 default:
   destination:
-    server:
+    server: https://kubernetes.default.svc
   enableAutoSync: false
 
 applications:
