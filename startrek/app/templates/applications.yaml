@@ -16,7 +16,7 @@ metadata:
 spec:
   project: {{ $.Values.project }}
   source:
-    repoURL: {{ $val.source.repoURL }}
+    repoURL: {{ $val.source.repoUrl }}
     targetRevision: {{ $val.source.targetRevision }}
     path: {{ $val.source.path }}
     helm:
