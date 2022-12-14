@@ -1,0 +1,81 @@
+{{- range $key,$val := .Values.applications }}
+# {{- /*
+# in order to use tpl within a range, _and_ have the key/val available to sub-templates,
+# need to add some variables to the root context.
+# */ -}}
+{{- $_ := set $ "appName" (print .Values.environment "-" $key) }}
+{{- if $val.enabled }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.environment }}-{{ $key }}
+  namespace: {{ .Values.namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .Values.project }}
+  source:
+    repoURL: {{ $val.source.repoURL }}
+    targetRevision: {{ $val.source.targetRevision }}
+    path: {{ $val.source.path $ }}
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-{{ .Values.environment }}.yaml
+  destination:
+    namespace: {{ .Values.namespace }}
+    server: {{ .Values.default.destination.server }}
+{{- if $val.enableAutoSync | default .Values.default.enableAutoSync }}
+  syncPolicy:
+    automated:
+      prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
+{{- end }}
+
+# {{- if $val.source.extraSourceFields }}
+# {{ tpl $val.source.extraSourceFields $ | indent 4 }}
+# {{- else if $.Values.default.app.source.extraSourceFields }}
+# {{ tpl $.Values.default.app.source.extraSourceFields $ | indent 4 }}
+# {{- end }}
+# {{- if $val.extraFields }}
+# {{ tpl $val.extraFields $ | indent 2 }}
+# {{- else if $.Values.default.app.extraFields }}
+# {{ tpl $.Values.default.app.extraFields $ | indent 2 }}
+# {{- end }}
+# {{- end }}
+# {{- end }}
+
+# {{- if and (.Values.helloWorld) (.Values.helloWorld.enabled) -}}
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: {{ .Values.environment }}-kirk
+#   namespace: {{ .Values.namespace }}
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: {{ .Values.common.project }}-{{ .Values.environment }}
+#   source:
+#     repoURL: {{ .Values.common.git.repoUrl }}
+#     path: helm-charts/hello-world
+#     targetRevision: {{ .Values.common.git.targetRevision }}
+#     helm:
+#       valueFiles:
+#       - values.yaml
+#       - values-{{ .Values.environment }}.yaml
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: {{ .Values.namespace }} # 
+#   syncPolicy:
+#     syncOptions:
+#     - PruneLast=true
+#     - CreateNamespace=true
+#     automated: # TODO: make conditional
+#       prune: true
+#     retry:
+#       limit: 1
+#       backoff:
+#         duration: 5s
+#         factor: 2
+#         maxDuration: 1m
+# {{- end -}}
