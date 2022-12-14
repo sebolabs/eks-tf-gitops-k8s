@@ -29,7 +29,7 @@ spec:
 {{- if $val.enableAutoSync | default .Values.default.enableAutoSync }}
   syncPolicy:
     automated:
-      prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
+      prune: {{ $val.autoSyncPrune | default .Values.default.autoSyncPrune | default true }}
 {{- end }}
 
 # {{- if $val.source.extraSourceFields }}
