@@ -1,4 +1,5 @@
 default:
+  appName: startrek
   destination:
     server: https://kubernetes.default.svc
   enableAutoSync: false
