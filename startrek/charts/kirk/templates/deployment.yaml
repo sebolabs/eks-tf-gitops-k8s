@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.environment }}-hello-universe-deployment
+  name: {{ .Values.environment }}-kirk
   labels:
-    app: {{ .Values.environment }}-hello-universe
+    app: {{ .Values.environment }}-kirk
 spec:
   selector:
     matchLabels:
-      app: {{ .Values.environment }}-hello-universe
+      app: {{ .Values.environment }}-kirk
   replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
-        app: {{ .Values.environment }}-hello-universe
+        app: {{ .Values.environment }}-kirk
     spec:
       containers:
-      - name: {{ .Values.environment }}-hello-universe
+      - name: {{ .Values.environment }}-kirk
         image: registry.k8s.io/e2e-test-images/agnhost:2.39
         ports:
         - containerPort: 80
