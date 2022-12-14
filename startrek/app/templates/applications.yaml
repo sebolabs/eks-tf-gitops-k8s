@@ -9,12 +9,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.environment }}-{{ $key }}
-  namespace: {{ .Values.namespace }}
+  name: {{ $.Values.environment }}-{{ $key }}
+  namespace: {{ $.Values.namespace }}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.project }}
+  project: {{ $.Values.project }}
   source:
     repoURL: {{ $val.source.repoURL }}
     targetRevision: {{ $val.source.targetRevision }}
@@ -22,14 +22,14 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-      - values-{{ .Values.environment }}.yaml
+      - values-{{ $.Values.environment }}.yaml
   destination:
-    namespace: {{ .Values.namespace }}
-    server: {{ .Values.default.destination.server }}
-{{- if $val.enableAutoSync | default .Values.default.enableAutoSync }}
+    namespace: {{ $.Values.namespace }}
+    server: {{ $.Values.default.destination.server }}
+{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync }}
   syncPolicy:
     automated:
-      prune: {{ $val.autoSyncPrune | default .Values.default.autoSyncPrune | default true }}
+      prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
 {{- end }}
 
 # {{- if $val.source.extraSourceFields }}
