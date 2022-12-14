@@ -26,8 +26,11 @@ spec:
   destination:
     namespace: {{ $.Values.namespace }}
     server: {{ $.Values.default.destination.server }}
-{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync }}
   syncPolicy:
+    syncOptions:
+      - "CreateNamespace=true"
+      - "PruneLast=true"
+{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync }}
     automated:
       prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
 {{- end }}
