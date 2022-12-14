@@ -32,3 +32,4 @@ spec:
       prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
 {{- end }}
 {{- end }}
+{{- end }}
