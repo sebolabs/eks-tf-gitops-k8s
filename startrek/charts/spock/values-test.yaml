@@ -1,0 +1,4 @@
+enabled: true
+
+service:
+  nodePort: 30181
