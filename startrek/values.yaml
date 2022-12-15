@@ -11,10 +11,10 @@ applications:
     source:
       repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
       targetRevision: trying-out-things-2apps 
-      path: startrek/charts/kirk
+      path: startrek/apps/kirk
   spock:
     enabled: true
     source:
       repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
       targetRevision: trying-out-things-2apps 
-      path: startrek/charts/spock
+      path: startrek/apps/spock
