@@ -1,15 +1,10 @@
 {{- range $key,$val := .Values.applications }}
-# {{- /*
-# in order to use tpl within a range, _and_ have the key/val available to sub-templates,
-# need to add some variables to the root context.
-# */ -}}
-{{- $_ := set $ "appName" (print $.Values.environment "-" $key) }}
 {{- if $val.enabled }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ $.Values.environment }}-{{ $key }}
+  name: {{ $key }}
   namespace: {{ $.Values.namespace }}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -20,9 +15,6 @@ spec:
     targetRevision: {{ $val.source.targetRevision }}
     path: {{ $val.source.path }}
     helm:
-      parameters:
-        - name: environment
-          value: {{ $.Values.environment }}
       valueFiles:
       - values.yaml
       - values-{{ $.Values.environment }}.yaml
@@ -33,7 +25,7 @@ spec:
     syncOptions:
       - "CreateNamespace=true"
       - "PruneLast=true"
-{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync }}
+{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync | default false }}
     automated:
       prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
 {{- end }}

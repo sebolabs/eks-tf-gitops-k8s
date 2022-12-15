@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.environment }}-kirk
+  name: kirk
 spec:
   selector:
-    app: {{ .Values.environment }}-kirk
+    app: kirk
   ports:
     - protocol: TCP
       port: 80
