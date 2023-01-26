@@ -4,7 +4,6 @@ applications:
     enableAutoSync: true
     source:
       targetRevision: trying-out-things-2apps
-    ignoreDifferences:
   spock:
     enabled: true
     source:
