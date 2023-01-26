@@ -1,3 +1,6 @@
+#
+# "Kirk" application configuration - "test" environment
+#
 enabled: true
 
 service:

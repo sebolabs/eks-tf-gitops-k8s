@@ -1,3 +1,6 @@
+#
+# "Startrek" app of apps configuration - "test" environment
+#
 applications:
   kirk:
     enabled: true
