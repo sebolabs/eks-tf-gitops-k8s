@@ -15,7 +15,7 @@ dependencies:
   version: 1.0.0
   repository: file://../../helm-charts/service
 - name: service
-  alias: obione
-  condition: obione.enabled
+  alias: obiwan
+  condition: obiwan.enabled
   version: 1.0.0
   repository: file://../../helm-charts/service

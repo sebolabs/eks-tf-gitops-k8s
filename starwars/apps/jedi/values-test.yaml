@@ -20,7 +20,7 @@ yoda:
   service:
     enabled: true
 
-obione:
+obiwan:
   enabled: true
   image:
     tag: "2.39"

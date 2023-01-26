@@ -9,7 +9,7 @@ yoda:
   image:
     repository: "registry.k8s.io/e2e-test-images/agnhost"
 
-obione:
+obiwan:
   enabled: false
   image:
     repository: "registry.k8s.io/e2e-test-images/agnhost"
