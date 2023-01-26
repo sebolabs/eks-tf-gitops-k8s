@@ -1,3 +1,6 @@
+#
+# "Startrek" application template
+#
 {{- range $key,$val := .Values.applications }}
 {{- if $val.enabled }}
 ---

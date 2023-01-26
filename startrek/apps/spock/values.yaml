@@ -1,1 +1,4 @@
+#
+# "Spock" application configuration - defaults
+#
 replicas: 2

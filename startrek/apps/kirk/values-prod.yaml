@@ -1,3 +1,6 @@
+#
+# "Kirk" application configuration - "prod" environment
+#
 enabled: false
 
 service:

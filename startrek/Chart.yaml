@@ -1,3 +1,6 @@
+#
+# This is the source for the "Startrek" app deployed with Terraform
+#
 apiVersion: v2
 name: startrek
 description: The StarTrek App of apps

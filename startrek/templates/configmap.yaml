@@ -1,3 +1,6 @@
+#
+# "Startrek" shared config map
+#
 apiVersion: v1
 kind: ConfigMap
 metadata:

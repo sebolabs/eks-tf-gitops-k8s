@@ -1,1 +1,4 @@
+#
+# "Kirk" application configuration - defaults
+#
 replicas: 1
