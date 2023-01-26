@@ -3,6 +3,7 @@ default:
   repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
   destination:
     server: https://kubernetes.default.svc
+  enableAutoSync: false
 
 applications:
   kirk:

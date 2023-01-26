@@ -7,4 +7,4 @@ applications:
   spock:
     enabled: true
     source:
-      targetRevision: HEAD
+      targetRevision: testing-defaults
