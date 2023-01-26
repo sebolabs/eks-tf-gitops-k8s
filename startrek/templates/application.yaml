@@ -28,7 +28,7 @@ spec:
       - "PrunePropagationPolicy=foreground" # owner object enter a delietion in progress state while dependents are being deleted
       - "Validate=false"                    # disables resource validation
       - "RespectIgnoreDifferences=true"     # respect ignored fields from '.Values.ignoreDifferences'
-{{- if $val.autoSync.enabled | default $.Values.default.autoSync.enabled }}
+{{- if $val.autoSync.enabled | default $.Values.default.autoSync.enabled | default false }}
     automated:
       prune: {{ $val.autoSync.prune | default $.Values.default.autoSync.prune }}
       allowEmpty: {{ $val.autoSync.allowEmpty | default $.Values.default.autoSync.allowEmpty }}
