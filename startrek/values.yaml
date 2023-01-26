@@ -2,6 +2,7 @@ default:
   appName: startrek
   destination:
     server: https://kubernetes.default.svc
+  ignoreDifferences:
 
 applications:
   kirk:

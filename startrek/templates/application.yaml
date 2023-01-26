@@ -39,7 +39,7 @@ spec:
         factor: 2         # multiplies the base duration after each failed retry
         maxDuration: "3m" # max retry backoff duration
       limit: 5            # max number of allowed sync retries
-{{- with $val.ignoreDifferences }}
+{{- with $val.ignoreDifferences | default $.Values.default.ignoreDifferences }}
   ignoreDifferences: # for ignoring differences of problematic resources
     {{- toYaml . | nindent 4 }}
 {{- end }}
