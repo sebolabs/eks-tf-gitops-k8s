@@ -3,8 +3,8 @@ applications:
     enabled: true
     enableAutoSync: true
     source:
-      targetRevision: trying-out-things-2apps
+      targetRevision: HEAD
   spock:
     enabled: true
     source:
-      targetRevision: trying-out-things-2apps
+      targetRevision: HEAD
