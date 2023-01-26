@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spock
+  labels:
+    app: spock
+spec:
+  selector:
+    matchLabels:
+      app: spock
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: spock
+    spec:
+      containers:
+      - name: spock
+        image: registry.k8s.io/e2e-test-images/agnhost:2.39
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: "250m"
+          requests:
+            memory: 128Mi
+            cpu: "80m"

@@ -1,0 +1,48 @@
+{{- range $key,$val := .Values.applications }}
+{{- if $val.enabled }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $key }}
+  namespace: {{ $.Values.namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ $.Values.project }}
+  source:
+    repoURL: {{ $val.source.repoUrl | default $.Values.default.repoUrl }}
+    targetRevision: {{ $val.source.targetRevision | default $.Values.default.targetRevision }}
+    path: {{ $val.source.path }}
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-{{ $.Values.environment }}.yaml
+  destination:
+    namespace: {{ $.Values.namespace }}
+    server: {{ $.Values.default.destination.server }}
+  syncPolicy:
+    syncOptions:
+      - "CreateNamespace=true"              # ensures that namespace specified as the application destination exists
+      - "PruneLast=true"                    # allows for resource pruning to happen as a final, implicit wave of a sync operation
+      - "PrunePropagationPolicy=foreground" # owner object enter a delietion in progress state while dependents are being deleted
+      - "Validate=false"                    # disables resource validation
+      - "RespectIgnoreDifferences=true"     # respect ignored fields from '.Values.ignoreDifferences'
+{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync | default false }}
+    automated:
+      prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
+      allowEmpty: {{ $val.autoSyncAllowEmpty | default $.Values.default.autoSyncAllowEmpty | default true }}
+      selfHeal: {{ $val.autoSyncSelfHeal | default $.Values.default.autoSyncSelfHeal | default true }}
+    retry:
+      backoff:
+        duration: "10s"   # retry backoff base duration
+        factor: 2         # multiplies the base duration after each failed retry
+        maxDuration: "3m" # max retry backoff duration
+      limit: 5            # max number of allowed sync retries
+{{- if $val.ignoreDifferences | default $.Values.default.ignoreDifferences | default false }}
+  ignoreDifferences: # for ignoring differences of problematic resources
+    {{- toYaml . | nindent 4 }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}

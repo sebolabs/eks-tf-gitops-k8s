@@ -1,0 +1,6 @@
+enabled: true
+
+replicas: 1
+
+service:
+  nodePort: 30181

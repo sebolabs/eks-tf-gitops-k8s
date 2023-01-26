@@ -1,0 +1,9 @@
+applications:
+  kirk:
+    enabled: true
+    source:
+      targetRevision: HEAD
+  spock:
+    enabled: false
+    source:
+      targetRevision: HEAD

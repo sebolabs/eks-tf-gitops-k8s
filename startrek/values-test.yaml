@@ -1,0 +1,10 @@
+applications:
+  kirk:
+    enabled: true
+    enableAutoSync: true
+    source:
+      targetRevision: trying-out-things-2apps
+  spock:
+    enabled: true
+    source:
+      targetRevision: trying-out-things-2apps
