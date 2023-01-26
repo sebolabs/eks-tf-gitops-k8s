@@ -3,4 +3,4 @@ name: kirk
 description: The Kirk app
 type: application
 version: 1.0.0
-appVersion: 1.0.0
+appVersion: "1.0"
