@@ -13,4 +13,4 @@ dependencies:
   alias: yoda
   condition: yoda.enabled
   version: 0.1.0
-  repository: file://../../charts/service
+  repository: file://../../helm-charts/service
