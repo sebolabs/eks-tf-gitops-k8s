@@ -39,6 +39,9 @@ spec:
         factor: 2         # multiplies the base duration after each failed retry
         maxDuration: "3m" # max retry backoff duration
       limit: 5            # max number of allowed sync retries
+{{- if $val.ignoreDifferences | default $.Values.default.ignoreDifferences }}
+  ignoreDifferences: {{ $val.ignoreDifferences | default $.Values.default.ignoreDifferences }}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
