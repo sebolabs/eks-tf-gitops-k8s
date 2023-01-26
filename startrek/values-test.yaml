@@ -1,7 +1,8 @@
 applications:
   kirk:
     enabled: true
-    enableAutoSync: true
+    autoSync:
+      enabled: true
     source:
       targetRevision: HEAD
   spock:

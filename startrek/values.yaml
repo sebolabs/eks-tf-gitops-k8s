@@ -1,9 +1,15 @@
 default:
   appName: startrek
-  repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
+  source:
+    repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
   destination:
     server: https://kubernetes.default.svc
-  enableAutoSync: false
+  autoSync:
+    enabled: false
+    prune: true
+    allowEmpty: true
+    selfHeal: true
+  ignoreDifferences:
 
 applications:
   kirk:

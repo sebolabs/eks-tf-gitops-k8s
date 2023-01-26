@@ -11,8 +11,8 @@ metadata:
 spec:
   project: {{ $.Values.project }}
   source:
-    repoURL: {{ $val.source.repoUrl | default $.Values.default.repoUrl }}
-    targetRevision: {{ $val.source.targetRevision | default $.Values.default.targetRevision }}
+    repoURL: {{ $val.source.repoUrl | default $.Values.default.source.repoUrl }}
+    targetRevision: {{ $val.source.targetRevision | default $.Values.default.source.targetRevision }}
     path: {{ $val.source.path }}
     helm:
       valueFiles:
@@ -28,18 +28,18 @@ spec:
       - "PrunePropagationPolicy=foreground" # owner object enter a delietion in progress state while dependents are being deleted
       - "Validate=false"                    # disables resource validation
       - "RespectIgnoreDifferences=true"     # respect ignored fields from '.Values.ignoreDifferences'
-{{- if $val.enableAutoSync | default $.Values.default.enableAutoSync | default false }}
+{{- if $val.autoSync.enabled | default $.Values.default.autoSync.enabled }}
     automated:
-      prune: {{ $val.autoSyncPrune | default $.Values.default.autoSyncPrune | default true }}
-      allowEmpty: {{ $val.autoSyncAllowEmpty | default $.Values.default.autoSyncAllowEmpty | default true }}
-      selfHeal: {{ $val.autoSyncSelfHeal | default $.Values.default.autoSyncSelfHeal | default true }}
+      prune: {{ $val.autoSync.prune | default $.Values.default.autoSync.prune }}
+      allowEmpty: {{ $val.autoSync.allowEmpty | default $.Values.default.autoSync.allowEmpty }}
+      selfHeal: {{ $val.autoSync.selfHeal | default $.Values.default.autoSync.selfHeal }}
     retry:
       backoff:
         duration: "10s"   # retry backoff base duration
         factor: 2         # multiplies the base duration after each failed retry
         maxDuration: "3m" # max retry backoff duration
       limit: 5            # max number of allowed sync retries
-{{- if $val.ignoreDifferences | default $.Values.default.ignoreDifferences | default false }}
+{{- if $val.ignoreDifferences | default $.Values.default.ignoreDifferences }}
   ignoreDifferences: # for ignoring differences of problematic resources
     {{- toYaml . | nindent 4 }}
 {{- end }}
