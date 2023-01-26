@@ -4,11 +4,6 @@ applications:
     enableAutoSync: true
     source:
       targetRevision: trying-out-things-2apps
-    ignoreDifferences:
-    - group: apps
-      kind: Deployment
-      jsonPointers:
-      - /spec/replicas
   spock:
     enabled: true
     source:
