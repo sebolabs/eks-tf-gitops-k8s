@@ -1,5 +1,5 @@
 #
-# "StarWars" app configuration - defaults
+# "Jedi" app configuration - defaults
 #
 config:
   numberOfJediActive: 100
@@ -9,5 +9,7 @@ yoda:
   image:
     repository: "registry.k8s.io/e2e-test-images/agnhost"
 
-emperor:
+obione:
   enabled: false
+  image:
+    repository: "registry.k8s.io/e2e-test-images/agnhost"

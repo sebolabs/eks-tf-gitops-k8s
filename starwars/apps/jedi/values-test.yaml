@@ -1,5 +1,5 @@
 #
-# "StarWars" app configuration - "test" environment
+# "Jedi" app configuration - "test" environment
 #
 environment: test
 
@@ -7,6 +7,20 @@ config:
   numberOfJediActive: 7
 
 yoda:
+  enabled: true
+  image:
+    tag: "2.40"
+  resources:
+    requests:
+      memory: 128Mi
+      cpu: "80m"
+    limits:
+      memory: 256Mi
+      cpu: "250m"
+  service:
+    enabled: true
+
+obione:
   enabled: true
   image:
     tag: "2.39"

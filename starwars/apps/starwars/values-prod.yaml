@@ -1,4 +1,0 @@
-#
-# "StarWars" app configuration - "prod" environment
-#
-environment: prod
