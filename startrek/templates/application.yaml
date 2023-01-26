@@ -11,8 +11,8 @@ metadata:
 spec:
   project: {{ $.Values.project }}
   source:
-    repoURL: {{ $val.source.repoUrl }}
-    targetRevision: {{ $val.source.targetRevision }}
+    repoURL: {{ $val.source.repoUrl | default $.Values.default.repoUrl }}
+    targetRevision: {{ $val.source.targetRevision | default $.Values.default.targetRevision }}
     path: {{ $val.source.path }}
     helm:
       valueFiles:

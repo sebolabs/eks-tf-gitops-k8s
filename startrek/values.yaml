@@ -1,14 +1,13 @@
 default:
   appName: startrek
+  repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
   destination:
     server: https://kubernetes.default.svc
 
 applications:
   kirk:
     source:
-      repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
       path: startrek/apps/kirk
   spock:
     source:
-      repoUrl: https://github.com/sebolabs/eks-tf-gitops-k8s
       path: startrek/apps/spock
