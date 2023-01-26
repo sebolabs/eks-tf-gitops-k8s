@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.default.appName }}-config
 data:
-  a_random_number: "3"
+  spaceShip: "UssEnterprise"
