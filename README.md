@@ -16,8 +16,6 @@ The "App of apps" ArgoCD pattern is used.
 ## StarWars
 Multi-application concept with a single Helm chart template used as dependency.
 
-**>>> YET TO COME!**
-
 ### Charecteristics
 * Terraform points to the `starwars` folder as the source of the application
 * application configuration is entirely controlled with Terraform

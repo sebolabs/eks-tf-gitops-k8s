@@ -1,5 +1,5 @@
 #
-# "Startrek" app of apps configuration - defaults
+# "StarTrek" app of apps configuration - defaults
 #
 default:
   appName: startrek

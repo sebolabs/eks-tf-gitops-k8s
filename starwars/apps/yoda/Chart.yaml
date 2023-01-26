@@ -1,0 +1,16 @@
+#
+# This is the source for the "StarWars Yoda" app deployed with Terraform
+#
+apiVersion: v2
+name: plunger-lift
+description: The StarWars Yoda app
+type: application
+version: 1.0.0
+appVersion: 1.0.0
+
+dependencies:
+- name: service
+  alias: yoda
+  condition: yoda.enabled
+  version: 0.1.0
+  repository: file://../../charts/service

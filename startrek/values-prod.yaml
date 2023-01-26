@@ -1,5 +1,5 @@
 #
-# "Startrek" app of apps configuration - "prod" environment
+# "StarTrek" app of apps configuration - "prod" environment
 #
 applications:
   kirk:

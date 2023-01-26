@@ -1,0 +1,4 @@
+#
+# "StarWars Yoda" app configuration - "prod" environment
+#
+environment: prod
