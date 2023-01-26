@@ -1,8 +1,8 @@
 #
-# This is the source for the "StarWars Yoda" app deployed with Terraform
+# This is the source for the "StarWars" app deployed with Terraform
 #
 apiVersion: v2
-name: plunger-lift
+name: starwars
 description: The StarWars Yoda app
 type: application
 version: 1.0.0

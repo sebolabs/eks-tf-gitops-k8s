@@ -1,5 +1,5 @@
 #
-# "StarWars Yoda" app configuration - "test" environment
+# "StarWars" app configuration - "test" environment
 #
 environment: test
 

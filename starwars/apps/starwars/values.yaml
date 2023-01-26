@@ -1,5 +1,5 @@
 #
-# "StarWars Yoda" app configuration - defaults
+# "StarWars" app configuration - defaults
 #
 config:
   numberOfJediActive: 100
