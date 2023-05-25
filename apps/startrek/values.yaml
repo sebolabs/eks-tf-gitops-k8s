@@ -13,7 +13,7 @@ default:
 applications:
   kirk:
     source:
-      path: startrek/apps/kirk
+      path: apps/startrek/apps/kirk
   spock:
     source:
-      path: startrek/apps/spock
+      path: apps/startrek/apps/spock
