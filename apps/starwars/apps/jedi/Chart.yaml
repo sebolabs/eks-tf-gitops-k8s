@@ -1,0 +1,21 @@
+#
+# This is the source for the "StarWars" app deployed with Terraform
+#
+apiVersion: v2
+name: jedi
+description: The Jedi app
+type: application
+version: 1.0.0
+appVersion: "1.0"
+
+dependencies:
+- name: starwars-service
+  alias: yoda
+  condition: yoda.enabled
+  version: 1.0.0
+  repository: file://../../../../helm-charts/starwars-service
+- name: starwars-service
+  alias: obiwan
+  condition: obiwan.enabled
+  version: 1.0.0
+  repository: file://../../../../helm-charts/starwars-service
