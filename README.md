@@ -7,7 +7,7 @@ The code here is used by the [EKS-TF-GitOps](https://github.com/sebolabs/eks-tf-
 The "App of apps" ArgoCD pattern is used.
 
 ### Charecteristics
-* Terraform points to the `startrek` folder as the source of the root application
+* Terraform points to the `apps/startrek` folder as the source of the root application
 * root application configuration is entirely controlled with Terraform
 * allows individual applications configurations to be different per environment with the use of values files
 * allows individual applications' resources (services) configuration to be different per environment with the use of values files
@@ -16,10 +16,8 @@ The "App of apps" ArgoCD pattern is used.
 ## StarWars
 Multi-application concept with a single Helm chart template used as dependency.
 
-**>>> YET TO COME!**
-
 ### Charecteristics
-* Terraform points to the `starwars` folder as the source of the application
+* Terraform points to the `apps/starwars/apps/*` folders as the source of individual applications
 * application configuration is entirely controlled with Terraform
 * application resources' (services) configuration templates are defined in a single Helm chart blueprint
 * the blueprint is meant to contain templates for all relevant K8s resources
