@@ -1,5 +1,5 @@
 #
-# These are the default values for the "service" chart template resources
+# These are the default values for the "starwars-service" chart template resources
 #
 image:
   repository: ""
