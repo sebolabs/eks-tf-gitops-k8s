@@ -1,0 +1,10 @@
+#
+# aws-for-fluent-bit
+#
+awsForFluentBit:
+  kinesis:
+    enabled: false
+  firehose:
+    enabled: false
+  elasticsearch:
+    enabled: false
