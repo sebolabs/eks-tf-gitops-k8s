@@ -1,0 +1,8 @@
+#
+# "kAMP" app configuration - "test" environment
+#
+environment: prod
+
+image: kamp-demo:prod
+
+replicas: 3

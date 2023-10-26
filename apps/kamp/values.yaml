@@ -1,0 +1,9 @@
+#
+# "kAMP" app configuration - defaults
+#
+image: kamp-demo
+
+replicas: 1
+
+service:
+  nodePort: 8989
