@@ -26,3 +26,6 @@ spec:
           requests:
             memory: 128Mi
             cpu: "80m"
+        env:
+        - name: PLATFORM
+          value: EKS
