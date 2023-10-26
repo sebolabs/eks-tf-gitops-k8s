@@ -6,4 +6,4 @@ image: kamp-demo
 replicas: 1
 
 service:
-  nodePort: 8989
+  nodePort: 32323
