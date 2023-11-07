@@ -4,3 +4,5 @@
 environment: test
 
 image: kamp-demo:test
+
+replicas: 2
