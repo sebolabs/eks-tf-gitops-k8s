@@ -28,6 +28,13 @@ spec:
             pathType: Prefix
             backend:
               service:
+                name: kamp
+                port:
+                  number: 8080
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
                 name: ssl-redirect
                 port:
                   name: use-annotations
