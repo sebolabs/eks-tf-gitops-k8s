@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: kamp
   annotations:
-    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/group.name: kamp
@@ -22,7 +21,8 @@ spec:
     - hosts:
       - demo.{{ .Values.ingress.domainName }}
   rules:
-    - http:
+    - host: demo.{{ .Values.ingress.domainName }}
+      http:
         paths:
           - path: /
             pathType: Prefix
