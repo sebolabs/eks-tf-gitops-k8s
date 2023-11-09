@@ -40,7 +40,7 @@ spec:
         - name: SSM_DEMO_PARAM_SECRET
           valueFrom:
             secretKeyRef:
-              name: ssmDemoParamSecret
+              name: ssm-demo-param-secret
               key: secret
         volumeMounts:
         - name: secrets-store
