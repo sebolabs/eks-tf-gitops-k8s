@@ -34,6 +34,10 @@ spec:
           requests:
             memory: 128Mi
             cpu: "80m"
+        volumeMounts:
+        - name: secrets-store
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
         env:
         - name: PLATFORM
           value: EKS
@@ -41,7 +45,3 @@ spec:
           value: "/mnt/secrets-store/ssmdemoparamsecret"
         - name: ASM_DEMO_SECRET_PATH
           value: "/mnt/secrets-store/asmdemosecret"
-        volumeMounts:
-        - name: secrets-store
-          mountPath: "/mnt/secrets-store"
-          readOnly: true

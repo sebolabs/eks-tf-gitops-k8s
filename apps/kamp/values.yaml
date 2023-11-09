@@ -1,9 +1,6 @@
 #
 # "kAMP" app configuration - defaults
 #
-image: kamp-demo
+image: kamp-demo:latest
 
 replicas: 1
-
-service:
-  nodePort: 32323
