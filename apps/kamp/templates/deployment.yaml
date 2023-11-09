@@ -37,10 +37,10 @@ spec:
         env:
         - name: PLATFORM
           value: EKS
-        - name: SSM_DEMO_PARAM_SECRET
+        - name: ASM_DEMO_SECRET
           valueFrom:
             secretKeyRef:
-              name: ssmdemoparamsecret
+              name: asmdemosecret
               key: secret
         volumeMounts:
         - name: secrets-store
