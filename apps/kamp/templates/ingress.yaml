@@ -19,9 +19,9 @@ spec:
   ingressClassName: alb
   tls:
     - hosts:
-      - demo.{{ .Values.ingress.domainName }}
+      - eksdemo.{{ .Values.ingress.domainName }}
   rules:
-    - host: demo.{{ .Values.ingress.domainName }}
+    - host: eksdemo.{{ .Values.ingress.domainName }}
       http:
         paths:
           - path: /
@@ -38,4 +38,3 @@ spec:
                 name: ssl-redirect
                 port:
                   name: use-annotations
-
