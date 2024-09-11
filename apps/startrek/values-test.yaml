@@ -6,8 +6,8 @@ applications:
     enabled: true
     enableAutoSync: true
     source:
-      targetRevision: kamp
+      targetRevision: HEAD
   spock:
     enabled: true
     source:
-      targetRevision: kamp
+      targetRevision: HEAD
