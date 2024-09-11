@@ -1,0 +1,6 @@
+#
+# "kAMP" app configuration - "test" environment
+#
+environment: test
+
+image: kamp-demo:test

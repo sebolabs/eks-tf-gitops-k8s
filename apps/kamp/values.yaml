@@ -1,0 +1,6 @@
+#
+# "kAMP" app configuration - defaults
+#
+image: kamp-demo:latest
+
+replicas: 1
