@@ -1,5 +1,5 @@
 #
-# "kAMP" app configuration - "test" environment
+# "kAMP" app configuration - "prod" environment
 #
 environment: prod
 
